@@ -11,3 +11,10 @@ What will you be able to do:
 - Create reports -> weekly, monthly, filter on category
 - Load/Save your transactions
 - Create accounts, saving, mortgage, ...
+
+## Libraries
+- Textual -> for the TUI
+- Click -> for the CLI or create from scratch using arguments
+
+## Resources
+Check clig.dev for CLI guidelines

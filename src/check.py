@@ -3,17 +3,15 @@ import argparse
 # Use init_args to setup the arguments
 def init_args(parser):
     # Add arguments
-    parser.add_argument("x", type=int, help="the base")
-    parser.add_argument("y", type=int, help="the exponant")
-    parser.add_argument("-v", "--verbose", action="count", default=0,
-        help="increase output verbosity")
+    parser.add_argument('-n', nargs='+')
+    parser.add_argument('args', nargs='*')
 
     # parse = 
-    return parser.parse_args()
+    return parser.parse_args(['-f'])
 
 def main():
     # Parser setup
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(prog='PROG')
 
     # Parsing the arguments in the parser object
     args = init_args(parser)
@@ -25,8 +23,3 @@ def main():
     if args.verbose >= 1:
         print(f"{args.x}^{args.y} == ", end="")
     print(answer)
-
-
-
-if __name__ == "__main__":
-    main()

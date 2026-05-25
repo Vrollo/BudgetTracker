@@ -3,23 +3,35 @@ import argparse
 # Use init_args to setup the arguments
 def init_args(parser):
     # Add arguments
-    parser.add_argument('-n', nargs='+')
-    parser.add_argument('args', nargs='*')
+    parser.add_argument('-a', '--add', nargs=4)
+    parser.add_argument('-d', '--delete', nargs=1)
 
     # parse = 
-    return parser.parse_args(['-f'])
+    return parser.parse_args('-d --add date amount category sub_category'.split())
 
-def main():
-    # Parser setup
-    parser = argparse.ArgumentParser(prog='PROG')
+def check():
+    parser = argparse.ArgumentParser()
 
-    # Parsing the arguments in the parser object
-    args = init_args(parser)
+    subparsers = parser.add_subparsers(dest="command", required=True)
 
-    # Selection of argument action used, to call the right function
-    answer = args.x**args.y
-    if args.verbose >= 2:
-        print(f"Running '{__file__}'")
-    if args.verbose >= 1:
-        print(f"{args.x}^{args.y} == ", end="")
-    print(answer)
+    # ---- add command ----
+    add_parser = subparsers.add_parser("add")
+    add_parser.add_argument("filename")
+    add_parser.add_argument("--force", action="store_true")
+
+    # ---- remove command ----
+    remove_parser = subparsers.add_parser("remove")
+    remove_parser.add_argument("id", type=int)
+
+    # ---- search command ----
+    search_parser = subparsers.add_parser("search")
+    search_parser.add_argument("query")
+    search_parser.add_argument("category")
+    search_parser.add_argument("--limit", type=int, default=10)
+
+    args = parser.parse_args()
+
+    print(args)
+
+if __name__ == "__main__":
+    check()  

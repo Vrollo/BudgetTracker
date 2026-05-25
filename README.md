@@ -1,4 +1,4 @@
-# Budget Tracker
+# Simple Budget Tracker
 
 This will be a simple CLI program to track your budget. This will be for Personal Project 1, for the boot.dev course.
 
@@ -6,11 +6,12 @@ The idea is to extend this with a TUI, currently got Textual in mind.
 
 What will you be able to do:
 - Add transactions
-- Modify transactions
+- Update transactions
 - Delete transactions
+- View balance
 - Create reports -> weekly, monthly, filter on category
 - Load/Save your transactions
-- Create accounts, saving, mortgage, ...
+- Create/Switch accounts, saving, mortgage, ...
 
 ## Libraries
 - Textual -> for the TUI

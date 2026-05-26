@@ -1,7 +1,7 @@
 [project]
 name = "budgettracker"
 version = "0.1.0"
-description = "Add your description here"
+description = "This will be a simple budget tracker CLI application"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
